@@ -82,7 +82,8 @@ var app = new Vue({
             outliers: 1,
             sprintWeeks: 2,
             url: '#',
-            filename: ''
+            filename: '',
+            importJson: ''
         }
     },
     mounted: function(){
@@ -182,6 +183,13 @@ var app = new Vue({
         },
         persist: function () {
             window.localStorage.setItem('planning', JSON.stringify(this.planning));
+        },
+        importJsonBtn: function(){
+            try{
+                this.planning = JSON.parse(this.importJson);
+            }catch(e){
+                alert("Invalid json on import");
+            }
         }
     }
 })

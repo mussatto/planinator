@@ -52,15 +52,6 @@
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div id="app">
-
-          <!-- controls -->
-          <div class="container">
-            <input type="button" v-on:click="load" class="btn btn-primary" value="Load" />
-            <input type="button" v-on:click="persist" class="btn btn-primary" value="Save" />
-            <a v-bind:href="'data:text/plain;charset=utf-8,'+encodeURIComponent(JSON.stringify(this.planning))"
-              download="export.json">Export File</a>
-          </div>
-
           <!-- end controls -->
 
           <!-- Team -->
@@ -132,7 +123,7 @@
             <!-- SPRINTS -->
 
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <div class="card-header" id="headingSprints">
                 <h5 class="mb-0">
                   <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#previousSprintsContent"
                     aria-expanded="false" aria-controls="previousSprintsContent">
@@ -141,8 +132,8 @@
                 </h5>
               </div>
 
-              <div id="previousSprintsContent" class="collapse show table-responsive"
-                aria-labelledby="previousSprintsContent" data-parent="#accordion">
+              <div id="previousSprintsContent" class="collapse show table-responsive" aria-labelledby="headingSprints"
+                data-parent="#accordion">
 
                 <table class="table table-striped table-sm">
                   <thead>
@@ -181,7 +172,7 @@
 
             <div class="card">
 
-              <div class="card-header" id="headingOne">
+              <div class="card-header" id="headingStats">
                 <h5 class="mb-0">
                   <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#estimatesContent"
                     aria-expanded="false" aria-controls="estimatesContent">
@@ -190,8 +181,7 @@
                 </h5>
               </div>
 
-              <div id="estimatesContent" class="collapse show" aria-labelledby="estimatesContent"
-                data-parent="#accordion">
+              <div id="estimatesContent" class="collapse show" aria-labelledby="headingStats" data-parent="#accordion">
 
                 <div class="card-deck mb-3 text-center">
 
@@ -238,9 +228,44 @@
                 </div>
               </div>
             </div>
+            <!-- end stats-->
 
+
+            <!-- controls -->
+            <div class="card">
+
+              <div class="card-header" id="headingControl">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#controlContent"
+                    aria-expanded="false" aria-controls="controlContent">
+                    Controls
+                  </button>
+                </h5>
+              </div>
+
+              <div id="controlContent" class="collapse show" aria-labelledby="headingStats" data-parent="#accordion">
+
+                <div class="form-group">
+                  <input type="button" v-on:click="load" class="btn btn-primary" value="Load" />
+                  <input type="button" v-on:click="persist" class="btn btn-primary" value="Save" />
+                </div>
+
+                <div class="form-group">
+
+                  <a class="btn btn-primary" v-bind:href="'data:text/plain;charset=utf-8,'+encodeURIComponent(JSON.stringify(this.planning))"
+                    download="export.json">Export to JSON</a>
+                </div>
+
+                <div class="form-group">
+                  <input type="button" v-on:click="importJsonBtn" class="btn btn-primary" value="Import JSON" />
+                  <textarea class="form-control" id="importJson" rows="3" v-model="importJson"></textarea>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- end controls -->
           </div>
-          <!-- end stats-->
 
         </div>
 
