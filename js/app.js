@@ -62,9 +62,19 @@ var app = new Vue({
         planning: {
             persons: [
                 {
-                    name: "Vitor",
+                    name: "Dev",
                     hours: 40,
-                    off: 0
+                    off: 8
+                },
+                {
+                    name: "Dev",
+                    hours: 40,
+                    off: 8
+                },
+                {
+                    name: "Dev",
+                    hours: 40,
+                    off: 8
                 }
             ],
             newPoint: 0,
@@ -74,6 +84,9 @@ var app = new Vue({
             url: '#',
             filename: ''
         }
+    },
+    mounted: function(){
+        $('.collapse').collapse();  
     },
     methods: {
         addPerson: function () {
