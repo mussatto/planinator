@@ -83,8 +83,8 @@
                       <tbody>
                         <tr v-for="(person, index)  in planning.persons">
                           <td><input v-model="person.name"></td>
-                          <td><input type="number" v-model="person.hours"></td>
-                          <td><input type="number" v-model="person.off"></td>
+                          <td><input type="number" v-model.number="person.hours"></td>
+                          <td><input type="number" v-model.number="person.off"></td>
                           <td><input type="button" v-on:click="removePerson(index)" class="btn btn-primary" value="-" />
                           </td>
                         </tr>
@@ -146,8 +146,8 @@
                   </thead>
                   <tbody>
                     <tr v-for="(sprint, index) in planning.sprints">
-                      <td><input type="number" v-model="sprint.value"></td>
-                      <td><input type="number" v-model="sprint.hours"></td>
+                      <td><input type="number" v-model.number="sprint.value"></td>
+                      <td><input type="number" v-model.number="sprint.hours"></td>
                       <td>{{ getHoursPerPoint(index).toLocaleString() }}</td>
                       <td>{{ getPointPerHours(index).toLocaleString() }}</td>
                       <td><input type="button" v-on:click="removePoint(index)" class="btn btn-primary" value="-" /></td>
